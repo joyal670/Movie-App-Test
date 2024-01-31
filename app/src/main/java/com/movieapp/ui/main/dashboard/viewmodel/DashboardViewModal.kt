@@ -5,18 +5,21 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.movieapp.api.ApiRepositoryProvider
+import com.movieapp.api.MainRepository
 import com.movieapp.api.Resource
 import com.movieapp.model.movie_category.MovieCategoryResponse
 import com.movieapp.utils.Constants
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class DashboardViewModal : ViewModel() {
+@HiltViewModel
+class DashboardViewModal @Inject constructor(private val repository: MainRepository) : ViewModel() {
 
     private val mutableLiveDataMovieCategory = MutableLiveData<Resource<MovieCategoryResponse>>()
     val dashboardMovieCategoryLiveData: LiveData<Resource<MovieCategoryResponse>> get() = mutableLiveDataMovieCategory
 
     fun getMovieCategory() {
-        val repository = ApiRepositoryProvider.providerApiRepository()
         mutableLiveDataMovieCategory.postValue(Resource.loading(null))
         viewModelScope.launch {
 

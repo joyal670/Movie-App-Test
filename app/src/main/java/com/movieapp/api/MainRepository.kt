@@ -8,8 +8,11 @@ import com.movieapp.model.movie_details.MovieDetailsResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Response
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class MainRepository(private val apiHelper: ApiService) {
+@Singleton
+class MainRepository @Inject constructor(private val apiHelper: ApiService) {
 
     suspend fun getMovieCategory(): Response<MovieCategoryResponse> =
         apiHelper.getMovieCategory()

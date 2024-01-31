@@ -14,7 +14,9 @@ import com.movieapp.ui.main.movie_details.activity.MovieDetailsActivity
 import com.movieapp.utils.CommonUtils.Companion.showErrorSnackBar
 import com.movieapp.utils.Constants
 import com.movieapp.utils.isConnected
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DashboardActivity : BaseActivity<DashboardViewModal, ActivityDashboardBinding>() {
 
     private lateinit var movieListAdapter: MovieTypeListAdapter

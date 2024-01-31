@@ -4,6 +4,7 @@ package com.movieapp.api
 import com.movieapp.model.add_movie.AddMovieResponse
 import com.movieapp.model.movie_category.MovieCategoryResponse
 import com.movieapp.model.movie_details.MovieDetailsResponse
+import dagger.Provides
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody
@@ -17,7 +18,9 @@ import retrofit2.http.Part
 import retrofit2.http.PartMap
 import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
 
+@Singleton
 interface ApiService {
 
     @GET("get-all-categories")
@@ -34,7 +37,9 @@ interface ApiService {
     ): Response<AddMovieResponse>
 
 
+
     companion object {
+
         fun create(): ApiService {
             val retrofit = retrofit2.Retrofit.Builder()
                 .client(initializeClient())
