@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin_5dp"
+    android:layout_margin="@dimen/margin_10dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/ivMovieCard"
+        android:layout_width="@dimen/margin_120dp"
+        android:layout_height="@dimen/margin_120dp"
+        app:strokeWidth="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="@dimen/margin_10dp">
+
+
+        <ImageView
+            android:id="@+id/ivMovie"
+            android:layout_width="@dimen/margin_120dp"
+            android:layout_height="@dimen/margin_120dp"
+            android:scaleType="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <TextView
+        android:id="@+id/tvMovieTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aktivgrotesk_bold"
+        android:text="Mission Impossible"
+        android:textColor="@color/color_blue"
+        android:layout_marginStart="@dimen/margin_10dp"
+        android:textSize="@dimen/text_size_20sp"
+        app:layout_constraintStart_toEndOf="@id/ivMovieCard"
+        app:layout_constraintTop_toTopOf="@id/ivMovieCard" />
+
+    <RatingBar
+        android:id="@+id/movieRating"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:rating="4"
+        android:layout_marginTop="@dimen/margin_3dp"
+        android:theme="@style/MyRatingBar"
+        app:layout_constraintStart_toStartOf="@id/tvMovieTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvMovieTitle"/>
+
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/lorem_ipsum"
+        android:layout_marginTop="@dimen/margin_6dp"
+        app:layout_constraintStart_toStartOf="@id/movieRating"
+        app:layout_constraintTop_toBottomOf="@id/movieRating"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="@dimen/text_size_13sp"
+        android:textColor="@color/smokey_grey"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:gravity="start"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/lvBottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_16dp">
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardMovieType"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_40dp"
+                app:cardBackgroundColor="@color/color_grey"
+                app:cardCornerRadius="@dimen/margin_10dp"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    android:layout_marginEnd="@dimen/margin_10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/aktivgrotesk_medium"
+                        android:text="@string/adding_to"
+                        android:textColor="@color/smokey_grey"
+                        android:textSize="@dimen/text_size_14sp" />
+
+                    <TextView
+                        android:id="@+id/tvCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_3dp"
+                        android:fontFamily="@font/aktivgrotesk_bold"
+                        android:text="Action"
+                        android:textColor="@color/color_blue"
+                        android:textSize="@dimen/text_size_14sp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/tvMovieTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:fontFamily="@font/aktivgrotesk_bold"
+                android:text="@string/movie_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16sp"
+                app:layout_constraintStart_toStartOf="@id/cardMovieType"
+                app:layout_constraintTop_toBottomOf="@id/cardMovieType" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/movieNameTextInput"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_60dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:backgroundTint="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/tvMovieTitle"
+                app:layout_constraintStart_toStartOf="@+id/tvMovieTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvMovieTitle">
+
+                <EditText
+                    android:id="@+id/etMovieName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/aktivgrotesk_medium"
+                    android:hint="@string/enter_name_of_movie"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textSize="@dimen/text_size_14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvMovieDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_22dp"
+                android:fontFamily="@font/aktivgrotesk_bold"
+                android:text="@string/description"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16sp"
+                app:layout_constraintStart_toStartOf="@id/tvMovieTitle"
+                app:layout_constraintTop_toBottomOf="@id/movieNameTextInput" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/movieDescriptionTextInput"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_60dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:backgroundTint="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/tvMovieDescription"
+                app:layout_constraintStart_toStartOf="@+id/tvMovieDescription"
+                app:layout_constraintTop_toBottomOf="@+id/tvMovieDescription">
+
+                <EditText
+                    android:id="@+id/etMovieDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/aktivgrotesk_medium"
+                    android:hint="@string/tell_some_details_about_the_movie"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textSize="@dimen/text_size_14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvMovieRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_22dp"
+                android:fontFamily="@font/aktivgrotesk_bold"
+                android:text="@string/choose_rating"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16sp"
+                app:layout_constraintStart_toStartOf="@id/tvMovieTitle"
+                app:layout_constraintTop_toBottomOf="@id/movieDescriptionTextInput" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/movieRatingTextInput"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:backgroundTint="@color/white"
+                android:hint="@string/choose_rating"
+                app:endIconDrawable="@drawable/arrow_drop_down"
+                app:endIconTint="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/tvMovieRating"
+                app:layout_constraintStart_toStartOf="@+id/tvMovieRating"
+                app:layout_constraintTop_toBottomOf="@+id/tvMovieRating">
+
+                <AutoCompleteTextView
+                    android:id="@+id/etMovieRating"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:fontFamily="@font/aktivgrotesk_medium"
+                    android:inputType="none"
+                    android:textSize="@dimen/text_size_14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvMovieImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_22dp"
+                android:fontFamily="@font/aktivgrotesk_bold"
+                android:text="@string/upload_image"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16sp"
+                app:layout_constraintStart_toStartOf="@id/tvMovieTitle"
+                app:layout_constraintTop_toBottomOf="@id/movieRatingTextInput" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardMovieImage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_40dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                app:cardBackgroundColor="@color/color_grey"
+                app:cardCornerRadius="@dimen/margin_10dp"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvMovieImage"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    android:layout_marginEnd="@dimen/margin_10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center"
+                        android:src="@drawable/photo_camera"
+                        app:tint="@color/smokey_grey" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center"
+                        android:layout_marginStart="@dimen/margin_5dp"
+                        android:fontFamily="@font/aktivgrotesk_medium"
+                        android:text="@string/choose_image"
+                        android:textColor="@color/smokey_grey"
+                        android:textSize="@dimen/text_size_14sp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvImages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:layout_marginBottom="@dimen/margin_10dp"
+                app:layout_constraintStart_toStartOf="@+id/cardMovieImage"
+                app:layout_constraintTop_toBottomOf="@+id/cardMovieImage" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/lvBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_10dp"
+        android:layout_marginEnd="@dimen/margin_10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnClose"
+            android:layout_width="@dimen/margin_0dp"
+            android:layout_height="@dimen/margin_60dp"
+            android:layout_marginEnd="@dimen/margin_5dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/aktivgrotesk_medium"
+            android:text="@string/cancel"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_16sp"
+            app:backgroundTint="@color/color_grey_button"
+            app:cornerRadius="@dimen/margin_10dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConfirm"
+            android:layout_width="@dimen/margin_0dp"
+            android:layout_height="@dimen/margin_60dp"
+            android:layout_marginStart="@dimen/margin_5dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/aktivgrotesk_medium"
+            android:text="@string/confirm"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_16sp"
+            app:backgroundTint="@color/color_blue"
+            app:cornerRadius="@dimen/margin_10dp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
